@@ -24,4 +24,9 @@ body{
     display: none;
 }
 
+.pokemon img{
+    height: 450px;
+    width: 10   0%;
+}
+
 
