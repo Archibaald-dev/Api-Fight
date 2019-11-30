@@ -1,89 +1,82 @@
-function random_bg_color() {
-    var x = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-    var bgColor = x;
-
-
- var x1 = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
- var y1 = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
- var per2 = Math.floor(Math.random() * 365);
-
-
-     var bgimage = "linear-gradient(" + per2 +"deg," + x1 +" "+ "00%," + y1 +" "+ "100%)";
-  
-    document.getElementById('col--character').style.backgroundColor=  bgColor;
-    document.getElementById('col--character').style.backgroundImage = bgimage;
-    }
-
-
 function getApiData() {
-  let input = prompt("Entrer le nom du super héros");
-
-
-random_bg_color();
-
-  const xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       const data = JSON.parse(xhr.responseText);
+      console.log(data);
 
-      const comics = data.data.results[0].comics.items;
-      const HeroName = data.data.results[0].name;
-      const HeroDes = data.data.results[0].description;
-      const HeroPic = data.data.results[0].thumbnail.path;
-      const HeroPicExt = data.data.results[0].thumbnail.extension;
+      const imggif = data;
 
-      
-      templateHeroImg(HeroPic, HeroPicExt);
-      templateHeroName("Héros :", HeroName);
-      templateType("nom :", comics);
-      templateHeroDes("Description :", HeroDes);
-      
+      templateCardImg("Card Image :", imggif);
     }
   };
+
   xhr.open(
     "GET",
-    "https://gateway.marvel.com:443/v1/public/characters?name=" +
-      input +
-      "&apikey=cca811438d0318ea058045c3adf8de2f"
+    "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/types/Minion?cost=4&?cost=5&?cost=6&?cost=7"
+  );
+  xhr.setRequestHeader(
+    "x-rapidapi-host",
+    "omgvamp-hearthstone-v1.p.rapidapi.com"
+  );
+  xhr.setRequestHeader(
+    "x-rapidapi-key",
+    "f7519df10amshd17bb115ccac51ap1a1f85jsn4d8cb972abe4"
   );
   xhr.send();
 }
-
-function templateType(title, name) {
-  let templateComicsName = document.querySelector(".col--character");
-  const names = name.length;
-
-  
-
-  for (let i = 0; i < names; i++) {
-    templateComicsName.innerHTML +=
-      '<div class="col-sm-12 ">' + title + " " + name[i].name + "</div>";
-  }
-}
-
-function templateHeroImg(title, name) {
-    let templateHeroImg = document.querySelector(".col--Hero");
-    templateHeroImg.innerHTML +=
-    '<div class="col-sm-12"> <img src="' + title + "." + name  + '" ></img></div>';
-  }
-
-
-
-
-function templateHeroDes(title, name) {
-    let templateHeroDes = document.querySelector(".col--Hero");
-    templateHeroDes.innerHTML +=
-      '<div class="col-sm-12"><h1> </h1>' + title + " " + name + "<h1> </h1></div>";
-  }
-  
-  function templateHeroName(title, name) {
-  let templateHeroName = document.querySelector(".col--Hero");
-  templateHeroName.innerHTML +=
-    '<div class="col-sm-12 ">  ' + title + " " + name + "</div>";
-
-    let templateComics = document.querySelector(".col--character");
-    templateComics.innerHTML +=
-      '<div class="col-sm-12 "><h1>Some comics where ' + name + " appears !</h1></div>";
-}
-
 getApiData();
+
+function templateCardImg(title, name) {
+  // var x1 = Math.floor(Math.random() * 392);
+
+  let templateCardImg = document.querySelector(".col--character");
+  const names = name.length;
+  for (let x1 = 0; x1 < names; x1++) {
+    templateCardImg.innerHTML +=
+      '<div class="col-sm-12 bonsoir '+ x1 +'" id=" ' +
+      x1 +
+      '">' +
+      title +
+      ' <img onerror=this.src="img/no-image-available.png" id="' + x1 + '" src="' + name[x1].img + '" ></div>';
+
+    if (name[x1].img.status == 404) {
+      document.getElementById(x1).style.display = "none";
+    }
+    name[x1].img.onerror = function() {
+      document.getElementById(x1).style.display = "none";
+    };
+  }
+}
+
+/*
+for (let i = 0; i < names; i++) {
+  // let img = document.getElementById(name[i].img);
+
+   if (name[i].img.status == 404) {
+    // img.onerror = function () {
+     document.getElementById(name[i].img).style.display="none";
+   
+ //  alert('a')}
+
+       
+ 
+}
+
+     templateCardImg.innerHTML +=
+       '<div class="col-sm-12" id=" ' +
+       name[i].img +
+       '">' +
+       title +
+       ' <img id="' + name[i].img + '" src="' +
+
+       name[i].img +
+       '" ></div>';
+
+       if (name[i].img.status == 404) {
+       //  img.onerror = function () {
+         document.getElementById(name[i].img).style.display="none";
+  // }
+ }
+}
+}*/
