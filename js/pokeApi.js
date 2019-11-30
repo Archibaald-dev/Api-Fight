@@ -33,13 +33,6 @@ function templatePokemonImg(name) {
   
   }
 
-  camelize = function camelize(str) {
-    return str.replace(/\W+(.)/g, function(match, chr)
-     {
-          return chr.toUpperCase();
-      });
-  }
-
   function templatePokemon(name,atk,hp) {
     // var x1 = Math.floor(Math.random() * 392);
   
@@ -50,8 +43,16 @@ function templatePokemonImg(name) {
         var atkmin = Math.ceil(atk/16)
     }
 
+    function camelize(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+          if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+          return index == 0 ? match.toLowerCase() : match.toUpperCase();
+        });
+      }
+      var NAME = name.charAt(0).toUpperCase() + name.slice(1);
+
     templateQuerryPoke.innerHTML +=
-    '<div class="col-sm-12">Pokemon : '+ camelize(name) +'<br> ATK : ' +
+    '<div class="col-sm-12">Pokemon : '+ NAME +'<br> ATK : ' +
     atkmin +
     '<br> HP : ' +  Math.ceil(hp/10) + '</div>';
   }
