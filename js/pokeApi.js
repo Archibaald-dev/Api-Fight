@@ -7,8 +7,11 @@ function getApiData() {
   
         const imgPoke = data.sprites.front_default;
         const NamePoke = data.name;
+        const PokeATK = data.stats[4].base_stat;
+        const PokeHP = data.stats[5].base_stat;
   
-        templatePokemonImg(NamePoke, imgPoke);
+        templatePokemonImg(imgPoke);
+        templatePokemon(NamePoke, PokeATK,PokeHP);
       }
     };
   
@@ -20,15 +23,28 @@ function getApiData() {
   }
   getApiData();
 
+  let templateQuerryPoke = document.querySelector(".col--character2");
+
+function templatePokemonImg(name) {
+    // var x1 = Math.floor(Math.random() * 392);
+
+    templateQuerryPoke.innerHTML +=
+        '<div class="col-sm-12 pokemon"><img onerror=this.src="img/no-image-available.png" src="' + name + '" ></div>';
   
-function templatePokemonImg(title, name) {
+  }
+
+  function templatePokemon(name,atk,hp) {
     // var x1 = Math.floor(Math.random() * 392);
   
-    let templatePokemonImg = document.querySelector(".col--character2");
+    if(99>atk) {
+        var atkmin = Math.ceil(atk/14)
+    }
+    else if(100<=atk){
+        var atkmin = Math.ceil(atk/16)
+    }
 
-        templatePokemonImg.innerHTML +=
-        '<div class="col-sm-12 pokemon"> Pokemon : ' +
-        title +
-        ' <img onerror=this.src="img/no-image-available.png" src="' + name + '" ></div>';
-  
+    templateQuerryPoke.innerHTML +=
+    '<div class="col-sm-12">Pokemon : '+ name +'<br> ATK : ' +
+    atkmin +
+    '<br> HP : ' +  Math.ceil(hp/10) + '</div>';
   }

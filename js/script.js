@@ -51,8 +51,8 @@ function templateCardImg(name) {
 function templateCard(name,atk, def) {
 
   templateQuerry.innerHTML +=
-        '<div class="col-sm-12">Minion : '+ name +' ATK : ' +
+        '<div class="col-sm-12">Minion : '+ name +'<br> ATK : ' +
         atk +
-        ' DEF : ' + def + '</div>';
+        '<br> HP : ' + def + '</div>';
  // }
 }
