@@ -17,7 +17,7 @@ function getApiData() {
   
     xhr.open(
       "GET",
-      "https://pokeapi.co/api/v2/pokemon/"+ Math.floor(Math.random() * 390)
+      "https://pokeapi.co/api/v2/pokemon/" + Math.floor(Math.random() * 802)
     );
     xhr.send();
   }
@@ -33,6 +33,13 @@ function templatePokemonImg(name) {
   
   }
 
+  camelize = function camelize(str) {
+    return str.replace(/\W+(.)/g, function(match, chr)
+     {
+          return chr.toUpperCase();
+      });
+  }
+
   function templatePokemon(name,atk,hp) {
     // var x1 = Math.floor(Math.random() * 392);
   
@@ -44,7 +51,7 @@ function templatePokemonImg(name) {
     }
 
     templateQuerryPoke.innerHTML +=
-    '<div class="col-sm-12">Pokemon : '+ name +'<br> ATK : ' +
+    '<div class="col-sm-12">Pokemon : '+ camelize(name) +'<br> ATK : ' +
     atkmin +
     '<br> HP : ' +  Math.ceil(hp/10) + '</div>';
   }
