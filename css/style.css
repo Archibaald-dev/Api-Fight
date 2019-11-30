@@ -1,0 +1,23 @@
+body{
+    /*background: white;*/
+}
+
+.coucou{
+    margin: 0px;
+    padding: 0;
+    color: white;
+}
+
+.col--Hero{
+    background-color: #ffffff;
+}
+
+.col--character{
+    padding-left: 20px; 
+}
+
+.col-sm-12 img {
+    max-width: 100%;
+}
+
+
