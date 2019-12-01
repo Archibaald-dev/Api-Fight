@@ -1,5 +1,4 @@
-
-  var x1 = Math.floor(Math.random() * 392);
+var x1 = Math.floor(Math.random() * 392);
 
 function getApiData() {
   let xhr = new XMLHttpRequest();
@@ -14,7 +13,7 @@ function getApiData() {
       const CardLIFE = data[x1].health;
 
       templateCardImg(imggif);
-      templateCard(CardNAME,CardATK, CardLIFE);
+      templateCard(CardNAME, CardATK, CardLIFE);
     }
   };
 
@@ -37,22 +36,30 @@ getApiData();
 let templateQuerry = document.querySelector(".col--character");
 
 function templateCardImg(name) {
-
   //const names = name.length;
   //for (let x1 = 0; x1 < names; x1++) {
-    templateQuerry.innerHTML +=
-      '<div class="col-sm-12 bonsoir '+ x1 +'" id=" ' +
-      x1 +
-      '"><img onerror=this.src="img/no-image-available.png" id="' + x1 + '" src="' + name[x1].img + '" ></div>';
+  templateQuerry.innerHTML +=
+    '<div class="col-sm-12 heigth ' +
+    x1 +
+    '" id=" ' +
+    x1 +
+    '"><img onerror=this.src="img/Card_Back_Default_NO.png" id="' +
+    x1 +
+    '" onload =console.log(this.height) src="' +
+    name[x1].img +
+    '" ></div>';
 
- // }
+  // }
 }
 
-function templateCard(name,atk, def) {
-
+function templateCard(name, atk, def) {
   templateQuerry.innerHTML +=
-        '<div class="col-sm-12">Minion : '+ name +'<br> ATK : ' +
-        atk +
-        '<br> HP : ' + def + '</div>';
- // }
+    '<div class="col-sm-12 textBox">Minion : ' +
+    name +
+    "<br> ATK : " +
+    atk +
+    "<br> HP : " +
+    def +
+    "</div>";
+  // }
 }

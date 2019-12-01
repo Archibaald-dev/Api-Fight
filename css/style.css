@@ -1,19 +1,40 @@
 body{
-    /*background: white;*/
+    background-color: #4618ee;
+    background-image: linear-gradient(315deg, #4618ee 50%, #a40606 50%);
+
+}
+
+
+html, body, .all, .col--character, .col--character2, .coucou {
+    margin: 0;
+    height: 100%;
 }
 
 .coucou{
     margin: 0px;
     padding: 0;
-    color: black;
+    color: white;
+    position: relative;
 }
 
-.col--Hero{
-    background-color: #ffffff;
+
+.col--character, .col--character2{
+    padding-top: 50%;
+    padding-bottom: -50%;
+    -ms-transform: translateY(-35%);
+    transform: translateY(-35%);
 }
 
-.col--character{
-    padding-left: 20px; 
+.textBox{
+   background-image: url("../img/2d933c9c7c6c13a.png");
+    background-size: 50% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.VSContener{
+    padding-top: 22%;
 }
 
 .col-sm-12 img {
@@ -23,10 +44,17 @@ body{
 .mystyle{
     display: none;
 }
-
+    
 .pokemon img{
-    height: 450px;
-    width: 10   0%;
+    height: 75%;
 }
 
+.height:not(img) {
+    min-height: 465px;
+    max-height: 465px;
+}
+
+.pokemon{
+    padding-top: 100px;
+}
 

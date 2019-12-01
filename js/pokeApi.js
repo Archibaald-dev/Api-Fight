@@ -29,7 +29,7 @@ function templatePokemonImg(name) {
     // var x1 = Math.floor(Math.random() * 392);
 
     templateQuerryPoke.innerHTML +=
-        '<div class="col-sm-12 pokemon"><img onerror=this.src="img/no-image-available.png" src="' + name + '" ></div>';
+        '<div class="col-sm-12 pokemon height"><img onerror=this.src="img/no-image-available.png" src="' + name + '" ></div>';
   
   }
 
@@ -43,16 +43,10 @@ function templatePokemonImg(name) {
         var atkmin = Math.ceil(atk/16)
     }
 
-    function camelize(str) {
-        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
-          if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
-          return index == 0 ? match.toLowerCase() : match.toUpperCase();
-        });
-      }
       var NAME = name.charAt(0).toUpperCase() + name.slice(1);
 
     templateQuerryPoke.innerHTML +=
-    '<div class="col-sm-12">Pokemon : '+ NAME +'<br> ATK : ' +
+    '<div class="col-sm-12 textBox">Pokemon : '+ NAME +'<br> ATK : ' +
     atkmin +
     '<br> HP : ' +  Math.ceil(hp/10) + '</div>';
   }
