@@ -59,7 +59,7 @@ function templateCardImg(name) {
     x1 +
     '" id=" ' +
     x1 +
-    '"><img onerror=this.src="img/Card_Back_Default_NO.png" id="' +
+    '"><img onerror=this.src="https://i.imgur.com/tPTuVkn.png" id="' +
     x1 +
     '" onload =console.log(this.height) src="' +
     name[x1].img +
