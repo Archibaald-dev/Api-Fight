@@ -1,51 +1,63 @@
-body{
+body {
     background-color: #4618ee;
     background-image: linear-gradient(315deg, #4618ee 50%, #a40606 50%);
-
 }
 
-
-html, body, .all, .col--character, .col--character2, .coucou {
+html, body, .all {
     margin: 0;
     height: 100%;
 }
 
-.coucou{
+.all {
+    position: relative;
+}
+
+.Title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    color: white;
+}
+
+.coucou {
     margin: 0px;
     padding: 0;
     color: white;
     position: relative;
 }
 
-
+/*
 .col--character, .col--character2{
     padding-top: 50%;
     padding-bottom: -50%;
     -ms-transform: translateY(-35%);
     transform: translateY(-35%);
-}
+}*/
 
-.textBox{
-   background-image: url("../img/2d933c9c7c6c13a.png");
+.textBox {
+    background-image: url("../img/2d933c9c7c6c13a.png");
     background-size: 50% 100%;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 
-.VSContener{
-    padding-top: 22%;
+.VSContener {
+    padding-top: 10%;
+    z-index: 9998;
 }
 
 .col-sm-12 img {
     max-width: 100%;
 }
 
-.mystyle{
+.mystyle {
     display: none;
 }
-    
-.pokemon img{
+
+.pokemon img {
     height: 75%;
 }
 
@@ -54,7 +66,36 @@ html, body, .all, .col--character, .col--character2, .coucou {
     max-height: 465px;
 }
 
-.pokemon{
+.pokemon {
     padding-top: 100px;
 }
 
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+#load {
+    opacity: 1;
+    transition: opacity 1s;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+    background: url(../img/Preloader_2.gif) center no-repeat #fff;
+}
+
+#hide {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9997;
+    background-color: black;
+}

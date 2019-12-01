@@ -15,14 +15,20 @@
   </head>
 
   <body class="text-center">
+      <div id="load"></div>
+      <div id="hide"></div>
     <div class="container-fluid all">
-      <div class="row all">
+      <div class="row all ">
+        <div class="Title"><h1>API FIGHT</h1></div>
         <div class="col-sm-5 coucou">
           <div class="row col--character" id="col--character"></div>
         </div>
-        <div class="col-sm-2 coucou VSContener">
-            <h1 class="col--VS" >VS</h1>
-            <button onclick="Fight()">Fight !</button>
+        <div class="col-sm-2 coucou VSContener my-auto">
+            <h1 class="col--VS" id="VS" >VS</h1>
+            <button id="Fight"  onclick="Fight()">Fight !</button>
+            <h2><br><br><br></h2>
+            <button  onClick="history.go(0)">Réessayer</button>
+            
           </div>
         <div class="col-sm-5 coucou">
           <div class="row col--character2"></div>

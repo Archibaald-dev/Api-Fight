@@ -1,3 +1,19 @@
+document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.opacity = "0";
+         setTimeout(function(){
+          document.getElementById('load').style.visibility = "hidden";
+       },1000);
+      },2500); 
+      
+  }
+}
+
+
+
 var x1 = Math.floor(Math.random() * 392);
 
 function getApiData() {
@@ -39,7 +55,7 @@ function templateCardImg(name) {
   //const names = name.length;
   //for (let x1 = 0; x1 < names; x1++) {
   templateQuerry.innerHTML +=
-    '<div class="col-sm-12 heigth ' +
+    '<div class="text-center col-sm-12 heigth ' +
     x1 +
     '" id=" ' +
     x1 +
@@ -53,13 +69,12 @@ function templateCardImg(name) {
 }
 
 function templateCard(name, atk, def) {
+  var str = "Minion : " + name + "<br> ATK : " + atk + "<br> HP : " + def;
+  window.numbersCards = str.match(/\d+/g).map(Number);
   templateQuerry.innerHTML +=
-    '<div class="col-sm-12 textBox">Minion : ' +
-    name +
-    "<br> ATK : " +
-    atk +
-    "<br> HP : " +
-    def +
-    "</div>";
+    '<div class="text-center col-sm-12 textBox">' + str + "</div>";
   // }
 }
+
+
+
