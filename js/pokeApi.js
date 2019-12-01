@@ -3,7 +3,6 @@ function getApiData() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       const data = JSON.parse(xhr.responseText);
-      console.log(data);
 
       const imgPoke = data.sprites.front_default;
       const NamePoke = data.name;

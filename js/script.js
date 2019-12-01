@@ -21,7 +21,6 @@ function getApiData() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       const data = JSON.parse(xhr.responseText);
-      console.log(data);
 
       const imggif = data;
       const CardNAME = data[x1].name;
@@ -61,7 +60,7 @@ function templateCardImg(name) {
     x1 +
     '"><img onerror=this.src="https://i.imgur.com/tPTuVkn.png" id="' +
     x1 +
-    '" onload =console.log(this.height) src="' +
+    '" src="' +
     name[x1].img +
     '" ></div>';
 
